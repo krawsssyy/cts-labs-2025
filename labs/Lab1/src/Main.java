@@ -27,7 +27,7 @@ public class Main {
     }
 
     public static class Child extends Parent {
-        // if we had a constructor in the Parent class, we would call it in this constructor using super(**kwargs);
+        // if we had a constructor in the Parent class, we would call it in this constructor using super(arg1, arg2, ..., argN); - arguments for the parent class constructor
         public void p_1() {
             System.out.println("p_1 from Child");
         }
@@ -46,18 +46,33 @@ public class Main {
                                         .collect(Collectors.toCollection(ArrayList::new)); // store result into an ArrayList
         // we have other streams for primitive data types, such as LongStream or DoubleStream
         // we can also convert primitive arrays (int[], double[]) via .stream(), and parse them accordingly (convert to collections, filter, apply transformations such as reduce and so on)
+        // think of streams as c++ streams, it allows us to create sequences of objects such that Java internally can process them in a faster and more streamlined way
 
         // elements can be added manually by using "array.add(value);"
         // if we want to remove elements, we can use "array.remove(value);" or "array.remove(index);"
         // beware, the index to be removed is an int, thus passing int to remove would make it use the index version
         // if you want to remove an integer value, use "array.remove(Integer.valueOf(value));"
-        // also, beware when using .remove(), as in collections it throws errors, based on the collection types, so wrap it in a try-catch block
+        // also, beware when using .remove(), as in some collections it throws errors, based on the collection types, so wrap it in a try-catch block
         // for try catch, you also the "finally" block, which is executed regardless of whether the code errored out or no
         System.out.println("Length of array is: " + array.size());
         // for arrays of primitive types, use .length for the length (not a function, beware)
 
         for (Integer value: array) // for with an iterator (can be like this or you can manually get the iterator and use it to traverse the collection) - it traverses the collection element by element, and puts the value of the elements in our defined variable
             // for (CollectionInternalDatatype variable: Collection)
+            // if we were to use iterators for this array, we would have
+            // Iterator<CollectionInternalDatatype> it = collection.iterator();
+            // it.next() gets the value of the current element and advances the iterator to the next position - it also has .nextIndex(), which returns the index of the element
+            // it.remove() removes the current element and advances to the next
+            // it.hasNext() is a boolean function (predicate) that returns true if the collection has elements left, and false otherwise
+            // it is to be used in traversing the collection using iterators
+            // you can either use the iterator in a while loop as such:
+            // while(it.hasNext())
+            //     CollectionInternalDatatype i = it.next();
+            //     ....
+            // or in a for loop, as such:
+            // for (Iterator<CollectionInternalDatatype> it = collection.iterator(); it.hasNext();)
+            //     CollectionInternalDatatype object = it.next();
+            //     ....
             System.out.print(value + " ");
 
         System.out.println(); // print an empty line
@@ -248,9 +263,9 @@ abstract class Animal {
         this.name = name;
     }
 
-    public abstract void speak();
+    public abstract void speak(); // overriding with @Override annotation mandatory
 
-    public void eat() {
+    public void eat() { // overriding not mandatory
         System.out.println("Animal eating...");
     }
 }
@@ -272,13 +287,14 @@ interface Shape {
     // they are instantiated with lambda functions
 
     // for e.g., if this was a functional interface, we'd have Shape shape = (int x) -> x * 2;
+    // and then, when we run the only abstract function with the arguments required by the lambda function, it executes it
 
     double PI = 3.1415;
 
-    double perimeter();
-    double area();
+    double perimeter(); // overriding with @Override annotation mandatory
+    double area(); // overriding with @Override annotation mandatory
 
-    default void show() {
+    default void show() { // overriding not necessary, though it can be
         System.out.println("Shape printed!");
     }
 }
@@ -288,7 +304,7 @@ class Pair<K, V> {
     // they just retain the definition way, using angular brackets, i.e. "<" and ">"
     // it allows you to work in a generic way with some dummy datatypes (defined in brackets), allowing you to create a general implementation of either a class or a method
     // in this example, we have created a small example for a pair (tuple)
-    // when you instantiate it, you provide the datatypes explicitly, as follows: Pair<Integer, Integer> pair = new Pair<>(1, 2);
+    // when you instantiate it, you provide the datatypes explicitly, as follows: Pair<Integer, String> pair = new Pair<>(1, "hello");
     final private K first;
     final private V second;
 
