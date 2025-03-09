@@ -23,32 +23,32 @@ public Float getCustomField() {return this.custom1;}
 public class DRY{
 public static List<Item1> sortAscendingItem1(List<Item1> p){
 List<Item1> cl = new ArrayList<Item1>(p);
-for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size()-1;j++) if (cl.get(i).getCustomField() > cl.get(j).getCustomField()) Collections.swap(cl, i, j);
+for(int i=0;i<cl.size()-1;i++) for (int j=i;j<cl.size();j++) if (cl.get(i).getCustomField() > cl.get(j).getCustomField()) Collections.swap(cl, i, j);
 return cl;
 }
 public static List<Item2> sortAscendingItem2(List<Item2> p){
 List<Item2> cl = new ArrayList<Item2>(p);
-for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size()-1;j++) if (cl.get(i).getCustomField() > cl.get(j).getCustomField()) Collections.swap(cl, i, j);
+for(int i=0;i<cl.size()-1;i++) for (int j=i;j<cl.size();j++) if (cl.get(i).getCustomField() > cl.get(j).getCustomField()) Collections.swap(cl, i, j);
 return cl;
 }
 public static List<Item3> sortAscendingItem3(List<Item3> p){
 List<Item3> cl = new ArrayList<Item3>(p);
-for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size()-1;j++) if (cl.get(i).getCustomField() > cl.get(j).getCustomField()) Collections.swap(cl, i, j);
+for(int i=0;i<cl.size()-1;i++) for (int j=i;j<cl.size();j++) if (cl.get(i).getCustomField() > cl.get(j).getCustomField()) Collections.swap(cl, i, j);
 return cl;
 }
 public static List<Item1> sortDescendingItem1(List<Item1> p){
 List<Item1> cl = new ArrayList<Item1>(p);
-for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size()-1;j++) if (cl.get(i).getCustomField() < cl.get(j).getCustomField()) Collections.swap(cl, i, j);
+for(int i=0;i<cl.size()-1;i++) for (int j=i;j<cl.size();j++) if (cl.get(i).getCustomField() < cl.get(j).getCustomField()) Collections.swap(cl, i, j);
 return cl;
 }
 public static List<Item2> sortDescendingItem2(List<Item2> p){
 List<Item2> cl = new ArrayList<Item2>(p);
-for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size()-1;j++) if (cl.get(i).getCustomField() < cl.get(j).getCustomField()) Collections.swap(cl, i, j);
+for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size();j++) if (cl.get(i).getCustomField() < cl.get(j).getCustomField()) Collections.swap(cl, i, j);
 return cl;
 }
 public static List<Item3> sortDescendingItem3(List<Item3> p){
 List<Item3> cl = new ArrayList<Item3>(p);
-for(int i=0;i<cl.size()-2;i++) for (int j=i;j<cl.size()-1;j++) if (cl.get(i).getCustomField() < cl.get(j).getCustomField()) Collections.swap(cl, i, j);
+for(int i=0;i<cl.size()-1;i++) for (int j=i;j<cl.size();j++) if (cl.get(i).getCustomField() < cl.get(j).getCustomField()) Collections.swap(cl, i, j);
 return cl;
 }
 }
@@ -111,8 +111,8 @@ public class DRY<K extends ElementInterface<V>, V extends Comparable<V>> {
         List<K> clonedList = new ArrayList<K>(elements);
 
         // implement a simple sorting algorithm with 2 fors
-        for (Integer i = 0; i < clonedList.size() - 2; i++) {
-            for (Integer j = i + 1; j < clonedList.size() - 1; j++) {
+        for (Integer i = 0; i < clonedList.size() - 1; i++) {
+            for (Integer j = i + 1; j < clonedList.size(); j++) {
                 Boolean toSwap = false;
                 Integer comparison = clonedList.get(i).getCustomField().compareTo(
                         clonedList.get(j).getCustomField()
