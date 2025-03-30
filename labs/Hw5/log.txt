@@ -1,0 +1,8 @@
+[LOG] Car builder initialized with with required fields: Toyota, Corolla, 2023, 1.8L I4, Red, 5
+[LOG] Builder set computer: true
+[LOG] Builder set GPS: true
+[LOG] Builder set air conditioning: true
+[LOG] Builder set alloy wheels: false
+[LOG] Builder build called!
+[LOG] Car created: 2023 Toyota Corolla | Engine: 1.8L I4 | Color: Red | Seats: 5 | Computer: true | GPS: true | Air Conditioning: true | Alloy Wheels: false
+[LOG] Test complete.
