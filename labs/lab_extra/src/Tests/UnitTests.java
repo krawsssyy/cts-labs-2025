@@ -36,6 +36,7 @@ public class UnitTests {
     // write failing test -> write minimal code to pass the test (-> refactor the code if needed) -> repeat with more tests (adhering to the given paradigms)
 
     // CORRECT - a paradigm for how to write good tests and think of cases to consider
+    // KEEP THIS IN MIND FOR ALL TESTS YOU WRITE
     // C - corectness/conformance - does the returned value conform to the expected format?
     // - test data formats and adherence to protocls and standards
     // - for example, testing that email addresses match valid patterns
